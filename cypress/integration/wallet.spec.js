@@ -23,18 +23,9 @@ function addBeneficiary(){
 
 
 describe('deposit', () => {
-    beforeEach(() => {
-      cy.viewport(1280, 800) 
-      cy.visit('https://devmalta.bitso.com/login')
-      cy.get('.moon-language').click()
-      cy.findByText(/english/i).click()
-    })
 
     it('deposit to first account', () => {
-      cy.get('#client_id').type("sahop98589@awinceo.com") // Use here the first test email
-      cy.get('#password').type("Letmein1@")
-      cy.findByRole('button', { name: /Log in/i }).click()
-      cy.findByText(/skip/i).click()
+      cy.login("sahop98589@awinceo.com", "Letmein1@")
       cy.findAllByText('btc', { timeout: 5000 }).first().click()
       cy.get('.moon-arrow_deposit').click()
       cy.get('#riskAccepted').click({force: true})
@@ -50,11 +41,7 @@ describe('deposit', () => {
 
 
     it('deposit to second account', () => {
-      cy.get('#client_id').type("sekemaw896@bbsaili.com") // Use here the second test email
-      cy.get('#password').type("Letmein1@")
-      cy.get('#password').type("Letmein1@")
-      cy.findByRole('button', { name: /Log in/i }).click()
-      cy.findByText(/skip/i).click()
+      cy.login("sekemaw896@bbsaili.com", "Letmein1@")
       cy.findAllByText('btc', { timeout: 5000 }).first().click()
       cy.get('.moon-arrow_deposit').click()
       cy.get('#riskAccepted').click({force: true})
