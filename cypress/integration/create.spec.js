@@ -15,7 +15,7 @@ describe('create accounts', () => {
  
     it('Create a new account from Mexico', () => {
       cy.findByText("Mexico").click()
-      cy.findByRole('textbox', { name: /email/i }).type("sekemaw896@bbsaili.com") // Add here your first test email
+      cy.findByRole('textbox', { name: /email/i }).type("sekemaw896@bbsaili.com") // Add here your second test email
       cy.get('#password').type("Letmein1@")
       cy.get('#password_confirmation').type("Letmein1@")
       cy.get('#accept_terms').click({force: true})
